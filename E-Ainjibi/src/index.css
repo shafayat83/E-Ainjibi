@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #C9A84C;
+  --color-gold-light: #E8C97A;
+  --color-gold-dark: #8B6914;
+  --color-deep: #0A0E1A;
+  --color-deep2: #111827;
+  --color-surface: #151C2E;
+  --color-surface2: #1E2A42;
+  --color-border: rgba(201,168,76,0.2);
+  --color-text: #F0EDE4;
+  --color-muted: #8A9BB5;
+  --color-green: #4CAF50;
+  
+  --font-sans: 'Hind Siliguri', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-deep text-text font-sans min-h-screen overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .gold-gradient-text {
+    background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 50%, var(--color-gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-badge {
+    @apply inline-flex items-center gap-2 bg-[rgba(201,168,76,0.1)] border border-border rounded-full px-4 py-1.5 mb-8 text-[0.8rem] text-gold;
+  }
+
+  .badge-dot {
+    @apply w-1.5 h-1.5 rounded-full bg-green animate-pulse;
+  }
+
+  .hero-btn {
+    @apply inline-flex items-center gap-2.5 bg-gold text-deep px-7 py-3.5 rounded-lg text-base font-bold no-underline border-none cursor-pointer transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(201,168,76,0.3)];
+  }
+
+  .hero-btn-outline {
+    @apply inline-flex items-center gap-2.5 bg-transparent text-gold px-7 py-3.5 rounded-lg text-base font-semibold border border-border no-underline cursor-pointer transition-all duration-200 hover:border-gold hover:bg-[rgba(201,168,76,0.05)];
+  }
+
+  .feature-card {
+    @apply bg-surface border border-border rounded-xl p-7 transition-all duration-200 hover:border-gold hover:-translate-y-1;
+  }
+
+  .topic-card {
+    @apply bg-surface border border-border rounded-xl px-4 py-6 text-center cursor-pointer transition-all duration-200 no-underline block hover:border-gold hover:bg-[rgba(201,168,76,0.04)];
+  }
+
+  .chat-box {
+    @apply bg-deep2 border border-border rounded-2xl overflow-hidden;
+  }
+
+  .chat-scrollbar::-webkit-scrollbar {
+    @apply w-1;
+  }
+
+  .chat-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  .msg-bubble {
+    @apply px-4 py-3 rounded-xl text-[0.9rem] leading-[1.75];
+  }
+
+  .msg-user .msg-bubble {
+    @apply bg-gold text-deep rounded-br-none font-medium;
+  }
+
+  .msg-bot .msg-bubble {
+    @apply bg-surface2 border border-border rounded-bl-none text-text;
+  }
+
+  .typing-dot {
+    @apply w-1.5 h-1.5 rounded-full bg-gold opacity-50 animate-[typing_1.2s_ease-in-out_infinite];
+  }
+
+  .markdown-body {
+    @apply text-inherit;
+  }
+
+  .markdown-body p {
+    @apply mb-3 last:mb-0;
+  }
+
+  .markdown-body strong {
+    @apply text-gold font-bold;
+  }
+
+  .markdown-body ul, .markdown-body ol {
+    @apply mb-3 ml-5 list-outside;
+  }
+
+  .markdown-body ul {
+    @apply list-disc;
+  }
+
+  .markdown-body ol {
+    @apply list-decimal;
+  }
+
+  .markdown-body li {
+    @apply mb-1;
+  }
+
+  .markdown-body h1, .markdown-body h2, .markdown-body h3 {
+    @apply font-bold text-gold mt-4 mb-2;
+  }
+
+  .markdown-body h1 { @apply text-xl; }
+  .markdown-body h2 { @apply text-lg; }
+  .markdown-body h3 { @apply text-base; }
+
+  .markdown-body blockquote {
+    @apply border-l-2 border-gold/30 pl-4 italic text-muted my-3;
+  }
+
+  .markdown-body code {
+    @apply bg-deep px-1.5 py-0.5 rounded text-gold font-mono text-[0.85em];
+  }
+
+  .markdown-body pre {
+    @apply bg-deep p-4 rounded-xl overflow-x-auto my-3 border border-border;
+  }
+
+  .markdown-body pre code {
+    @apply bg-transparent p-0 text-[0.9rem];
+  }
+
+  @keyframes typing {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-6px); opacity: 1; }
+  }
+}
+
