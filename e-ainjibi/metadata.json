@@ -1,0 +1,5 @@
+{
+  "name": "ই-আইনজীবী (E-Ainjibi)",
+  "description": "বাংলাদেশের প্রথম এআই আইনি পরামর্শক। পারিবারিক, ভূমি, শ্রম এবং ফৌজদারি আইনের সঠিক সমাধান।",
+  "requestFramePermissions": ["microphone"]
+}
